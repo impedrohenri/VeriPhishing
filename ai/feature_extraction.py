@@ -145,24 +145,24 @@ def feature_extraction(url):
     NoHttps(df)  # Chamada fora do bloco def
 
 
-    def RandomString(df):
-        def entropy(s):
-            if not s or len(s) < 2:
-                return 0
-            prob = [s.count(c)/len(s) for c in set(s)]
-            return -sum(p * math.log2(p) for p in prob)
+    # def RandomString(df):
+    #     def entropy(s):
+    #         if not s or len(s) < 2:
+    #             return 0
+    #         prob = [s.count(c)/len(s) for c in set(s)]
+    #         return -sum(p * math.log2(p) for p in prob)
         
-        def check_random(u):
-            try:
-                path = urlparse(u).path
-                segments = re.split(r'[/\-_]', path)
-                return int(any(entropy(seg) > 4 for seg in segments if seg))
-            except:
-                return 0
+    #     def check_random(u):
+    #         try:
+    #             path = urlparse(u).path
+    #             segments = re.split(r'[/\-_]', path)
+    #             return int(any(entropy(seg) > 4 for seg in segments if seg))
+    #         except:
+    #             return 0
                 
-        df['RandomString'] = df['url'].apply(check_random).astype(int)
-        return df
-    RandomString(df)  # Chamada fora do bloco def
+    #     df['RandomString'] = df['url'].apply(check_random).astype(int)
+    #     return df
+    # RandomString(df)  # Chamada fora do bloco def
 
 
     def IpAddress(df):
@@ -341,13 +341,13 @@ def feature_extraction(url):
 
 
 
-    def QueryParameterCount(df):
-        """Número de parâmetros na query string"""
-        df['QueryParameterCount'] = df['url'].apply(
-            lambda u: len(parse_qs(urlparse(u).query))
-        ).astype('int16')
-        return df
-    QueryParameterCount(df)
+    # def QueryParameterCount(df):
+    #     """Número de parâmetros na query string"""
+    #     df['QueryParameterCount'] = df['url'].apply(
+    #         lambda u: len(parse_qs(urlparse(u).query))
+    #     ).astype('int16')
+    #     return df
+    # QueryParameterCount(df)
 
 
 

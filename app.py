@@ -6,7 +6,7 @@ from ai import model, feature_extraction
 
 app = Flask(__name__)
 
-ML_model = model.RF_model
+ML_model = model.CatBoost_model
 
 @app.route('/')
 def home():
