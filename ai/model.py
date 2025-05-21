@@ -1,6 +1,5 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import classification_report
 from catboost import CatBoostClassifier
 
 
@@ -21,4 +20,3 @@ CatBoost_model = CatBoostClassifier(border_count= 128, depth= 6, iterations= 200
 CatBoost_model.fit(x_treino, y_treino)
 
 y_pred_CB = CatBoost_model.predict(x_teste)
-print(classification_report(y_teste, y_pred_CB, digits=4))

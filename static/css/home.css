@@ -79,9 +79,16 @@ body {
 }
 
 .clipped-text {
-  display: inline-block;
-  width: 91%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+    display: inline-block;
+    width: 91%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tip-card:hover {
+    transition: 0.4s ease;
+    transform: translateY(-2px);
+    box-shadow: 2px 2px 5px rgba(99, 102, 241, 0.3);
+    transform: scale(1.015);
 }
